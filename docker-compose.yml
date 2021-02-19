@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+
+  postgres:
+    image: mdillon/postgis:10-alpine
+    env_file:
+      - .env
+    volumes:
+      - /var/run/postgresql:/var/run/postgresql
+      - postgres_data:/var/lib/postgresql/data/
+    restart: always
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: .
+    env_file:
+      - .env
+    hostname: web
+    volumes:
+      - ./app:/code
+      - .env:/code .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    restart: always
+
+volumes:
+  postgres_data:

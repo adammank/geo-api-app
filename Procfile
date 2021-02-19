@@ -1,0 +1,1 @@
+web: sh -c 'cd app && gunicorn config.wsgi:application'
