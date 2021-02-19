@@ -26,7 +26,7 @@ ___
 ### 2. Deployment
 You can use this Geo Api Application under the following url:  
 
-    https
+    https://geo-api-app.herokuapp.com/
 
 ___
 ### 3. Auth endpoints
